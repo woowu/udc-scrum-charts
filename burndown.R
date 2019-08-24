@@ -2,8 +2,6 @@ library(ggplot2); library(scales); library(RColorBrewer);
 
 # fte_theme taken from http://minimaxir.com/2015/02/ggplot-tutorial/
 fte_theme <- function() {
-
-    # Generate the colors for the chart procedurally with RColorBrewer
     palette <- brewer.pal("Greys", n=9)
     color.background = palette[2]
     color.grid.major = palette[3]
@@ -11,52 +9,51 @@ fte_theme <- function() {
     color.axis.title = palette[7]
     color.title = palette[9]
 
-    # Begin construction of chart
     theme_grey(base_size=11) +
-
-        # Set the entire chart region to a light gray color
-        #theme(panel.background=element_rect(fill=color.background, color=color.background)) +
-        #theme(plot.background=element_rect(fill=color.background, color=color.background)) +
-        #theme(panel.border=element_rect(color=color.background)) +
-
-        # Format the grid
-        #theme(panel.grid.major=element_line(color=color.grid.major,size=.25)) +
-        #theme(panel.grid.minor=element_blank()) +
-        #theme(axis.ticks=element_blank()) +
-
-        # Format the legend, but hide by default
         theme(legend.position="right") +
-        #theme(legend.background = element_rect(fill=color.background)) +
         theme(legend.text = element_text(size=11,color=color.axis.title)) +
-        theme(legend.title = element_text(size=12,color=color.axis.title)) +
+        theme(legend.title = element_blank()) +
 
         # Set title and axis labels, and format these and tick marks
-        theme(plot.title = element_text(color = color.title, size = 12, vjust = 1.25)) +
+        theme(plot.title = element_text(color = color.title, size = 12,
+                                        vjust = 1.25)) +
         #theme(axis.text.x=element_text(size=7,color=color.axis.text)) +
         #theme(axis.text.y=element_text(size=7,color=color.axis.text)) +
-        theme(axis.title.x=element_text(size = 13, color = color.axis.title, vjust = -2)) +
-        theme(axis.title.y=element_text(size = 13, color = color.axis.title, vjust = 5)) +
+        theme(axis.title.x=element_text(size = 13, color = color.axis.title,
+                                        vjust = -2)) +
+        theme(axis.title.y=element_text(size = 13, color = color.axis.title,
+                                        vjust = 5)) +
 
-        # Plot margins
         theme(plot.margin = unit(c(0.5, 0.5, 0.35, 1), "cm"))
 }
 
-#pdf("plots.pdf")
-svg('burndown.svg')
-burndown <- read.csv("burndown.csv")
-max_points <- max(burndown[[1]])
-#max_sprint <- max(burndown[[2]])
-max_sprint <- 24
-min_sprint <- min(burndown[[2]])
-velocity <- max_points / (max_sprint - min_sprint)
-ystep <- max_points / 20
+dat <- read.csv('burndown.csv')
+baseline <- data.frame(dat$Sprint, dat$Baseline, rep('baseline', dim(dat)[1]))
+actual <- data.frame(dat$Sprint, dat$Actual, rep('actual', dim(dat)[1]))
+actual <- subset(actual, ! is.na(dat.Actual))
+head <- c('sprint', 'efforts', 'type')
+names(baseline) <- head
+names(actual) <- head
+burndown <- rbind(baseline, actual)
 
-plot <- ggplot(burndown, aes(Sprint, Points)) +
-    geom_segment(aes(x = min_sprint, y = max_points, xend = max_sprint, yend = 0), color='#878787') +
-    geom_line(aes(color = burndown[[1]] > max_points - (burndown[[2]] - min_sprint) * velocity), size=1.5) +
-    scale_x_continuous(limits = c(min_sprint, max_sprint), breaks = seq(min_sprint, max_sprint, by=1)) +
-    scale_y_continuous(limits = c(0, max_points), breaks = seq(0, max_points, by=ystep)) +
-    scale_color_manual(values = c('green', 'red'), name = 'Progress', labels = c('ahead', 'behind')) +
+max_efforts <- max(burndown$efforts)
+min_sprint <- min(burndown$sprint)
+max_sprint <- max(burndown$sprint)
+velocity <- max_efforts / (max_sprint - min_sprint)
+ystep <- 50
+
+min(actual$efforts)
+plot <- ggplot(burndown, aes(sprint, efforts)) +
+    geom_line(aes(color = type, size = type != 'baseline')) +
+    geom_segment(aes(x = 11, xend = 11, y = 0, yend = max_efforts),
+                 color = '#c0c0c0', size = 0.3, linetype = 'dashed') +
+    scale_x_continuous(limits = c(min_sprint, max_sprint),
+        breaks = seq(min_sprint, max_sprint, by=1), name = 'sprint (2w)') +
+    scale_y_continuous(limits = c(0, max_efforts),
+        breaks = seq(0, max_efforts, by=ystep), name = 'remaining points') +
+    scale_size_manual(values = c(0.5, 1.2), guide = FALSE) +
     fte_theme()
+
+svg('burndown.svg')
 plot
 dev.off()
