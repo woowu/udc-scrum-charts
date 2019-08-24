@@ -1,29 +1,15 @@
-library(ggplot2); library(scales); library(RColorBrewer);
+library(ggplot2);
 
-# fte_theme taken from http://minimaxir.com/2015/02/ggplot-tutorial/
-fte_theme <- function() {
-    palette <- brewer.pal("Greys", n=9)
-    color.background = palette[2]
-    color.grid.major = palette[3]
-    color.axis.text = palette[6]
-    color.axis.title = palette[7]
-    color.title = palette[9]
+ystep <- 50
+guide_line_color <- '#c0c0c0'
+guide_line_sz <- .2
+curr_sprint <- 11
+annotation_sz <- 3
 
-    theme_grey(base_size=11) +
-        theme(legend.position="right") +
-        theme(legend.text = element_text(size=11,color=color.axis.title)) +
+my_theme <- function() {
+    theme_bw(base_size=12, base_family = 'SF Pro Display') +
         theme(legend.title = element_blank()) +
-
-        # Set title and axis labels, and format these and tick marks
-        theme(plot.title = element_text(color = color.title, size = 12,
-                                        vjust = 1.25)) +
-        #theme(axis.text.x=element_text(size=7,color=color.axis.text)) +
-        #theme(axis.text.y=element_text(size=7,color=color.axis.text)) +
-        theme(axis.title.x=element_text(size = 13, color = color.axis.title,
-                                        vjust = -2)) +
-        theme(axis.title.y=element_text(size = 13, color = color.axis.title,
-                                        vjust = 5)) +
-
+        theme(plot.title = element_text(vjust = 1.25, face = 'bold')) +
         theme(plot.margin = unit(c(1, .5, .75, 1), "cm"))
 }
 
@@ -40,22 +26,35 @@ max_efforts <- max(burndown$efforts)
 min_sprint <- min(burndown$sprint)
 max_sprint <- max(burndown$sprint)
 velocity <- max_efforts / (max_sprint - min_sprint)
-ystep <- 50
 
 min(actual$efforts)
 plot <- ggplot(burndown, aes(sprint, efforts)) +
     geom_line(aes(color = type, size = type != 'baseline')) +
-    geom_segment(aes(x = 11, xend = 11, y = 0, yend = max_efforts),
-                 color = '#c0c0c0', size = 0.3, linetype = 'dashed') +
     scale_x_continuous(limits = c(min_sprint, max_sprint),
         breaks = seq(min_sprint, max_sprint, by=1), name = 'sprint (2w)') +
     scale_y_continuous(limits = c(0, max_efforts),
-        breaks = seq(0, max_efforts, by=ystep), name = 'remaining points') +
+        breaks = seq(0, max_efforts, by=ystep), name = 'remaining effort (points)') +
     scale_size_manual(values = c(0.5, 1.2), guide = FALSE) +
+    geom_segment(aes(x = curr_sprint, xend = curr_sprint, y = 0, yend = 554.40 - 10),
+                 color = guide_line_color, size = guide_line_sz) +
+    geom_segment(aes(x = 17, xend = 17, y = 0, yend = 373.2 - 10),
+                 color = guide_line_color, size = guide_line_sz) +
+    geom_segment(aes(x = 21, xend = 21, y = 0, yend = 252.4 - 10),
+                 color = guide_line_color, size = guide_line_sz) +
+    geom_segment(aes(x = 26, xend = 26, y = 0, yend = 101.4 - 10),
+                 color = guide_line_color, size = guide_line_sz) +
+    annotate('text', x = curr_sprint, y = 554.40 + 10, hjust = 0,
+             size = annotation_sz, label = 'Today') +
+    annotate('text', x = 17, y = 373.2 + 10, hjust = 0,
+             size = annotation_sz, label = 'Arch. Matured') +
+    annotate('text', x = 21, y = 252.4 + 10, hjust = 0,
+             size = annotation_sz, label = 'Full Functional') +
+    annotate('text', x = 26, y = 101.4 + 10, hjust = 0,
+             size = annotation_sz, label = 'Feature Rich') +
     labs(title = 'Efforts Burndown',
          subtitle = 'Planned vs Actual') +
-    fte_theme()
+    my_theme()
 
-svg('burndown.svg')
+svg('burndown.svg', width = 8, height = 5)
 plot
 dev.off()

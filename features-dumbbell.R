@@ -1,5 +1,12 @@
 library(ggplot2); library(ggalt)
 
+my_theme <- function() {
+    theme_bw(base_size = 12, base_family = 'SF Pro Display') +
+        theme(plot.title = element_text(vjust = 1.25, face = 'bold'),
+              axis.ticks = element_blank(),
+              plot.margin = unit(c(1, 0.5, .75, .5), "cm"))
+}
+
 dat <- read.csv('feature-list.csv')
 dat$Remaining <- dat$Efforts * (1 - dat$Completed)
 dat <- dat[order(dat$Efforts),]
@@ -13,12 +20,10 @@ plot <- ggplot(dat, aes(x = Remaining, xend = Efforts, y = Feature,
     scale_x_continuous(limits = c(0, max_efforts),
         breaks = seq(0, max_efforts, by = 20), name = 'effort (points)') +
     labs(y = NULL,
-         title = 'Efforts Comes From Features',
+         title = 'Feature Efforts',
          subtitle = 'Day 0 vs Remainning') +
-    theme(plot.title = element_text(vjust = 1.25, face = 'bold'),
-          axis.ticks = element_blank(),
-          plot.margin = unit(c(1, 0.5, .75, .5), "cm"))
+    my_theme()
 
-svg('features-dumbbell.svg')
+svg('features-dumbbell.svg', width = 7, height = 6)
 plot
 dev.off()

@@ -1,21 +1,21 @@
 "Feature","Completed","Efforts"
 "AI",0.90,63
 "AO + DO output",0.25,52
-"Control Algo (PID)",0.15,140
+"Control Algo",0.15,140
 "Failsafe",0.00,8
-"Timer-ed Relay",0.00,5
+"Time-ed Relay",0.00,5
 "Soft Start",0.00,8
-"Input Math Algo",0.00,8
-"Fuzzy Overshoot suppression",0.00,3
+"Input Math",0.00,8
+"Fuzzy OS Suppression",0.00,3
 "Accutune",0.00,13
 "SP Ramp/Program/Rate",0.25,20
-"Auxiliary outputs",0.00,8
-"Alarm and display",0.00,20
-"DI function",0.00,13
+"Auxiliary Outputs",0.00,8
+"Alarm",0.00,20
+"DI",0.00,13
 "Modbus, Ethernet",0.65,10
 "GUI",0.00,43
 "PIE Upgrading",0.00,20
 "IOS Client",0.38,130
 "FCT (Inc. ICT?)",0.00,17
-"Firmware Upgrade (Device + IOS work)",0.00,48
-"Self Test (Power-Up, Backgroud, Status Test)",0.00,16
+"Firmware Upgrade",0.00,48
+"Self Test",0.00,16
