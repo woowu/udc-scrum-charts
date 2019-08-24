@@ -24,7 +24,7 @@ fte_theme <- function() {
         theme(axis.title.y=element_text(size = 13, color = color.axis.title,
                                         vjust = 5)) +
 
-        theme(plot.margin = unit(c(0.5, 0.5, 0.35, 1), "cm"))
+        theme(plot.margin = unit(c(1, .5, .75, 1), "cm"))
 }
 
 dat <- read.csv('burndown.csv')
@@ -52,6 +52,8 @@ plot <- ggplot(burndown, aes(sprint, efforts)) +
     scale_y_continuous(limits = c(0, max_efforts),
         breaks = seq(0, max_efforts, by=ystep), name = 'remaining points') +
     scale_size_manual(values = c(0.5, 1.2), guide = FALSE) +
+    labs(title = 'Efforts Burndown',
+         subtitle = 'Planned vs Actual') +
     fte_theme()
 
 svg('burndown.svg')
