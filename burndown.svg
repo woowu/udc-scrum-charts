@@ -86,10 +86,10 @@
 <circle cx='228.60' cy='196.84' r='3.56pt' style='stroke-width: 0.71; stroke: #666666;' clip-path='url(#cpNTQuODV8NDcxLjE2fDM4Ny4zNXw1My45OQ==)' />
 <circle cx='314.62' cy='267.79' r='3.56pt' style='stroke-width: 0.71; stroke: #666666;' clip-path='url(#cpNTQuODV8NDcxLjE2fDM4Ny4zNXw1My45OQ==)' />
 <circle cx='383.43' cy='324.55' r='3.56pt' style='stroke-width: 0.71; stroke: #666666;' clip-path='url(#cpNTQuODV8NDcxLjE2fDM4Ny4zNXw1My45OQ==)' />
-<g clip-path='url(#cpNTQuODV8NDcxLjE2fDM4Ny4zNXw1My45OQ==)'><text x='162.18' y='132.18' style='font-size: 11.04px; fill: #E7298A; font-family: Arial;' textLength='23.92px' lengthAdjust='spacingAndGlyphs'>MVP</text></g>
-<g clip-path='url(#cpNTQuODV8NDcxLjE2fDM4Ny4zNXw1My45OQ==)'><text x='234.92' y='188.94' style='font-size: 11.04px; fill: #E7298A; font-family: Arial;' textLength='63.19px' lengthAdjust='spacingAndGlyphs'>Arch. Mature</text></g>
-<g clip-path='url(#cpNTQuODV8NDcxLjE2fDM4Ny4zNXw1My45OQ==)'><text x='321.80' y='259.89' style='font-size: 11.04px; fill: #E7298A; font-family: Arial;' textLength='71.79px' lengthAdjust='spacingAndGlyphs'>Full Functional</text></g>
-<g clip-path='url(#cpNTQuODV8NDcxLjE2fDM4Ny4zNXw1My45OQ==)'><text x='389.75' y='316.65' style='font-size: 11.04px; fill: #E7298A; font-family: Arial;' textLength='63.20px' lengthAdjust='spacingAndGlyphs'>Feature Rich</text></g>
+<g clip-path='url(#cpNTQuODV8NDcxLjE2fDM4Ny4zNXw1My45OQ==)'><text x='165.42' y='132.18' style='font-size: 11.04px; fill: #E7298A; font-family: Arial;' textLength='281.34px' lengthAdjust='spacingAndGlyphs'>Sys + Hardware up running, minimal user function: Viable</text></g>
+<g clip-path='url(#cpNTQuODV8NDcxLjE2fDM4Ny4zNXw1My45OQ==)'><text x='232.17' y='188.94' style='font-size: 11.04px; fill: #E7298A; font-family: Arial;' textLength='178.55px' lengthAdjust='spacingAndGlyphs'>GUI 20%; AI, AO, Control Algo: 80%</text></g>
+<g clip-path='url(#cpNTQuODV8NDcxLjE2fDM4Ny4zNXw1My45OQ==)'><text x='317.59' y='259.89' style='font-size: 11.04px; fill: #E7298A; font-family: Arial;' textLength='148.78px' lengthAdjust='spacingAndGlyphs'>GUI 80% + Firmware Upgrade</text></g>
+<g clip-path='url(#cpNTQuODV8NDcxLjE2fDM4Ny4zNXw1My45OQ==)'><text x='385.12' y='316.65' style='font-size: 11.04px; fill: #E7298A; font-family: Arial;' textLength='84.67px' lengthAdjust='spacingAndGlyphs'>Lower order FBIs</text></g>
 <defs>
   <clipPath id='cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA='>
     <rect x='0.00' y='0.00' width='576.00' height='432.00' />
@@ -105,22 +105,22 @@
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='70.14' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='7.28px' lengthAdjust='spacingAndGlyphs'>8</text></g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='87.34' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='7.28px' lengthAdjust='spacingAndGlyphs'>9</text></g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='100.91' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>10</text></g>
-<g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='118.11' y='403.62' style='font-size: 12.80px; fill: #E7298A; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>11</text></g>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='118.11' y='403.62' style='font-size: 12.80px; fill: #D95F02; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>11</text></g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='135.31' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>12</text></g>
-<g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='152.52' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>13</text></g>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='152.52' y='403.62' style='font-size: 12.80px; fill: #E7298A; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>13</text></g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='169.72' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>14</text></g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='186.92' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>15</text></g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='204.12' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>16</text></g>
-<g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='221.33' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>17</text></g>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='221.33' y='403.62' style='font-size: 12.80px; fill: #E7298A; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>17</text></g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='238.53' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>18</text></g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='255.73' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>19</text></g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='272.94' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>20</text></g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='290.14' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>21</text></g>
-<g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='307.34' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>22</text></g>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='307.34' y='403.62' style='font-size: 12.80px; fill: #E7298A; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>22</text></g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='324.54' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>23</text></g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='341.75' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>24</text></g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='358.95' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>25</text></g>
-<g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='376.15' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>26</text></g>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='376.15' y='403.62' style='font-size: 12.80px; fill: #E7298A; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>26</text></g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='393.36' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>27</text></g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='410.56' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>28</text></g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8NDMyLjAwfDAuMDA=)'><text x='427.76' y='403.62' style='font-size: 12.80px; fill: #666666; font-family: Roboto;' textLength='14.55px' lengthAdjust='spacingAndGlyphs'>29</text></g>

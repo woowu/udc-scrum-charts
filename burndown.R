@@ -8,6 +8,7 @@ annotation_point_sz <- 3
 tick_label_color <- brewer.pal(n = 8, name = 'Dark2')[8]
 highlight_color <- brewer.pal(n = 8, name = 'Dark2')[4]
 annotation_color <- brewer.pal(n = 8, name = 'Dark2')[4]
+curr_sprint_color <- brewer.pal(n = 8, name = 'Dark2')[2]
 font <- 'Roboto'
 font_sz <- 16
 
@@ -31,16 +32,18 @@ max_sprint <- max(burndown$sprint)
 sprints_num <- nrow(forecast)
 velocity <- max_efforts / (max_sprint - min_sprint)
 
-key_sprints <- forecast[c(mid(1, sprints_num, .2)
+key_sprints_index = c(mid(1, sprints_num, .2)
                           , mid(1, sprints_num, .4)
                           , mid(1, sprints_num, .6)
-                          , mid(1, sprints_num, .8)),]
-key_sprints$name <- c('MVP'
-                      , 'Arch. Mature'
-                      , 'Full Functional'
-                      , 'Feature Rich');
+                          , mid(1, sprints_num, .8))
+key_sprints <- forecast[key_sprints_index,]
+key_sprints$name <- c('Sys + Hardware up running, minimal user function: Viable'
+                      , 'GUI 20%; AI, AO, Control Algo: 80%'
+                      , 'GUI 80% + Firmware Upgrade'
+                      , 'Lower order FBIs');
 sprint_colors <- rep(tick_label_color, sprints_num)
-sprint_colors[curr_sprint - min_sprint + 1] <- highlight_color
+sprint_colors[key_sprints_index] = highlight_color
+sprint_colors[curr_sprint - min_sprint + 1] <- curr_sprint_color
 
 my_theme <- function() {
     theme_minimal(base_size = font_sz, base_family = font) +
@@ -64,7 +67,7 @@ plot <- ggplot(burndown, aes(sprint, efforts)) +
                , color = tick_label_color) +
     geom_text(data = key_sprints, aes(sprint, efforts, label = name)
               , color = annotation_color
-              , hjust = -.1, vjust = -1) +
+              , hjust = -.02, vjust = -1) +
     labs(title = 'Efforts Burndown w/ Release Milestones'
          , subtitle = 'Forecast vs Actual') +
     my_theme()
