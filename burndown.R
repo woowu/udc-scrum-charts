@@ -8,7 +8,7 @@ annotation_point_sz <- 3
 tick_label_color <- brewer.pal(n = 8, name = 'Dark2')[8]
 highlight_color <- brewer.pal(n = 8, name = 'Dark2')[4]
 annotation_color <- brewer.pal(n = 8, name = 'Dark2')[4]
-curr_sprint_color <- brewer.pal(n = 8, name = 'Dark2')[2]
+curr_sprint_color <- 'black'
 font <- 'Roboto'
 font_sz <- 16
 
@@ -27,7 +27,8 @@ head <- c('sprint', 'efforts', 'type')
 names(forecast) <- head
 names(inspection) <- head
 names(adaptation) <- head
-burndown <- rbind(forecast, inspection, adaptation)
+#burndown <- rbind(forecast, inspection, adaptation)
+burndown <- rbind(forecast, adaptation)
 
 max_efforts <- max(burndown$efforts)
 min_sprint <- min(burndown$sprint)
@@ -47,18 +48,21 @@ key_sprints$name <- c('Sys + Hardware up running, minimal user function: Viable'
 sprint_colors <- rep(tick_label_color, sprints_num)
 sprint_colors[key_sprints_index] = highlight_color
 sprint_colors[curr_sprint - min_sprint + 1] <- curr_sprint_color
+sprint_faces <- rep('plain', sprints_num)
+sprint_faces[curr_sprint - min_sprint + 1] <- 'bold'
 
 my_theme <- function() {
     theme_minimal(base_size = font_sz, base_family = font) +
         theme(legend.title = element_blank()) +
         theme(plot.title = element_text(vjust = 1.25, face = 'bold')) +
-        theme(axis.text.x = element_text(color = sprint_colors)) +
+        theme(axis.text.x = element_text(color = sprint_colors
+                                         , face= sprint_faces)) +
         theme(axis.text.y = element_text(color = tick_label_color))
 }
 
 plot <- ggplot(burndown, aes(sprint, efforts)) +
     geom_line(aes(color = type, size = type == 'inspection')) +
-    scale_color_brewer(palette = 'Dark2', labels = c('forcast', 'actual', 'new plan')) +
+    scale_color_brewer(palette = 'Dark2', labels = c('forcast', 'new plan')) +
     scale_x_continuous(limits = c(min_sprint, max_sprint),
         breaks = seq(min_sprint, max_sprint, by=1), name = 'sprint (2w)') +
     scale_y_continuous(limits = c(0, max_efforts)
