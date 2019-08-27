@@ -18,13 +18,16 @@ mid <- function(min, max, dist) {
 
 dat <- read.csv('burndown.csv')
 forecast <- data.frame(dat$sprint, dat$forecast, rep('forecast', dim(dat)[1]))
-actual <- data.frame(dat$sprint, dat$actual, rep('actual', dim(dat)[1]))
-actual <- subset(actual, ! is.na(dat.actual))
+inspection <- data.frame(dat$sprint, dat$inspection, rep('inspection', dim(dat)[1]))
+inspection <- subset(inspection, ! is.na(dat.inspection))
+adaptation <- data.frame(dat$sprint, dat$adaptation, rep('adaptation', dim(dat)[1]))
+adaptation <- subset(adaptation, ! is.na(dat.adaptation))
+
 head <- c('sprint', 'efforts', 'type')
 names(forecast) <- head
-names(actual) <- head
-burndown <- rbind(forecast, actual)
-forecast <- subset(burndown, burndown$type == 'forecast')
+names(inspection) <- head
+names(adaptation) <- head
+burndown <- rbind(forecast, inspection, adaptation)
 
 max_efforts <- max(burndown$efforts)
 min_sprint <- min(burndown$sprint)
@@ -54,14 +57,14 @@ my_theme <- function() {
 }
 
 plot <- ggplot(burndown, aes(sprint, efforts)) +
-    geom_line(aes(color = type, size = type != 'forecast')) +
-    scale_color_brewer(palette = 'Dark2') +
+    geom_line(aes(color = type, size = type == 'inspection')) +
+    scale_color_brewer(palette = 'Dark2', labels = c('forcast', 'actual', 'new plan')) +
     scale_x_continuous(limits = c(min_sprint, max_sprint),
         breaks = seq(min_sprint, max_sprint, by=1), name = 'sprint (2w)') +
     scale_y_continuous(limits = c(0, max_efforts)
         , breaks = seq(0, max_efforts, by=ystep)
         , name = 'remaining effort (points)') +
-    scale_size_manual(values = c(0.5, 1.2), guide = FALSE) +
+    scale_size_manual(values = c(0.5, 1.5), guide = FALSE) +
     geom_point(data = key_sprints, aes(sprint, efforts), shape = 1
                , size = annotation_point_sz
                , color = tick_label_color) +
