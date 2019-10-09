@@ -11,7 +11,8 @@ my_theme <- function() {
 }
 
 dat <- read.csv('feature-list.csv')
-dat$remaining <- dat$efforts * (1 - dat$completed)
+dat$remaining <- dat$efforts * ifelse(dat$completed < 1, 1 - dat$completed, 0)
+
 dat <- dat[order(dat$efforts),]
 dat$feature <- factor(dat$feature, levels = as.character(dat$feature))
 
