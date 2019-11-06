@@ -62,7 +62,7 @@ my_theme <- function() {
 
 plot <- ggplot(burndown, aes(sprint, efforts)) +
     geom_line(aes(color = type, size = type == 'inspection')) +
-    scale_color_brewer(palette = 'Dark2', labels = c('forcast', 'new plan', 'actual')) +
+    scale_color_brewer(palette = 'Dark2', labels = c('baseline', 'plan', 'actual')) +
     scale_x_continuous(limits = c(min_sprint, max_sprint),
         breaks = seq(min_sprint, max_sprint, by=1), name = 'sprint (2w)') +
     scale_y_continuous(limits = c(0, max_efforts)
