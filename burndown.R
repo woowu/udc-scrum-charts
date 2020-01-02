@@ -1,9 +1,10 @@
+#!/usr/bin/Rscript
 library(ggplot2); library(purrr); library(RColorBrewer);
 
 ystep <- 100
 guide_line_color <- '#c0c0c0'
 guide_line_sz <- .2
-curr_sprint <- 14
+curr_sprint <- 20 
 annotation_point_sz <- 3
 tick_label_color <- brewer.pal(n = 8, name = 'Dark2')[8]
 highlight_color <- brewer.pal(n = 8, name = 'Dark2')[4]

@@ -1,3 +1,4 @@
+#!/usr/bin/Rscript
 library(ggplot2); library(ggalt); library(RColorBrewer);
 
 font <- 'Roboto'
